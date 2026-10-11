@@ -1,66 +1,72 @@
 # 🌊 marola
 
-A friendly guide to the sea near you: which beach is good for swimming today, and the best hour
-tomorrow. It is built from public data, in the open, as citizen science, and it says "no data"
-when it does not know.
+🇬🇧 [Read in English](https://github.com/marola-dev/.github/blob/main/profile/README.en.md)
 
-**[marola.dev](https://marola.dev/)**: the live map (Florianópolis, Rio de Janeiro, Salvador) ·
-**[docs.marola.dev](https://docs.marola.dev/)**: using and building marola
+Um guia amigável para o mar perto de você: qual praia está boa para nadar hoje e qual é o melhor
+horário amanhã. É feito com dados públicos, em código aberto, como ciência cidadã, e diz "sem
+dados" quando não sabe.
 
-## Why
+**[marola.dev](https://marola.dev/)**: o mapa ao vivo (Florianópolis, Rio de Janeiro, Salvador) ·
+**[docs.marola.dev](https://docs.marola.dev/)**: como usar e como construir o marola
 
-- **Open and non-profit.** Much of Brazil's ocean data sits with private holders, and nobody can
-  forecast water quality, climate disasters or environmental accidents without it. A non-profit
-  that promises to share everything can ask for that data; one more company could not.
-- **Water quality first.** Sanitation in Brazil is far from solved, so marola starts with the
-  question "can I go in this water?". A national bathing-water ranking is
-  [under discussion](https://github.com/marola-dev/marola/discussions/676).
-- **A water super app.** One place that hands you the answer, not the tools: what Sequoia calls
-  [services as software](https://sequoiacap.com/article/services-the-new-software).
-- **Open source, for the long term.** With AI, code is no longer the secret. Brazil needs
-  projects that outlive the people and the governments that started them.
-- **Partners, not money.** We welcome storage, GPU time or data from companies, credited
-  discreetly on the site. No ads, no tracking.
+## Por quê
 
-## How it is built
+- **Aberto e sem fins lucrativos.** Boa parte dos dados do oceano no Brasil está com quem é
+  dono deles, e sem esses dados ninguém prevê qualidade da água, desastre climático ou acidente
+  ambiental. Uma organização sem fins lucrativos que promete compartilhar tudo pode pedir esses
+  dados; mais uma empresa não poderia.
+- **Primeiro a qualidade da água.** O saneamento no Brasil está longe de resolvido, então o
+  marola começa pela pergunta "dá pra entrar nessa água?". Um ranking nacional de
+  balneabilidade está [em discussão](https://github.com/marola-dev/marola/discussions/676).
+- **Um super app da água.** Um lugar só que te entrega a resposta, e não as ferramentas: o que a
+  Sequoia chama de [services as software](https://sequoiacap.com/article/services-the-new-software).
+- **Código aberto, para durar.** Com IA, o código deixou de ser o segredo. O Brasil precisa de
+  projetos que durem mais que as pessoas e os governos que os começaram.
+- **Parceiros, não dinheiro.** Aceitamos armazenamento, horas de GPU ou dados de empresas, com
+  crédito discreto no site. Sem anúncios e sem rastreamento.
 
-One project, many small repos: a distributed monolith. A shared plan and rules let AI agents see
-the whole picture, while each repo keeps its own tests and releases and pins the others'
-published versions instead of reading their code.
+## Como é feito
 
-### Why an umbrella
+Um projeto, vários repositórios pequenos: um monólito distribuído. Um plano e regras em comum
+deixam os agentes de IA verem o todo, enquanto cada repositório tem os próprios testes e
+releases e fixa as versões publicadas dos outros em vez de ler o código deles.
 
-marola started as one repo. By September 2026 that one tree forced one build on everything: a
-CSS change to the map waited on a Scala compile, and parallel agent sessions needed 30+ worktrees
-to stay out of each other's way. Splitting into separate repos fixes the builds but loses what
-the single repo did best: an agent could see the whole project at once.
+### Por que um guarda-chuva
 
-The umbrella keeps both. [marola](https://github.com/marola-dev/marola) holds no code, only the
-team layer (plans, rules, the phase list, the docs site) and every other repo as a git submodule.
-Clone it with `--recurse-submodules` and the whole project is one directory again, with the
-shared rules at the root and each repo's own rules inside it. Each repo still builds, tests and
-releases alone, and talks to the others only through versioned artifacts it pins.
+O marola começou num repositório só. Em setembro de 2026, essa árvore única obrigava tudo a
+passar pelo mesmo build: uma mudança de CSS no mapa esperava o Scala compilar, e as sessões de
+agente em paralelo precisavam de mais de 30 worktrees para não pisar umas nas outras. Separar em
+repositórios resolve os builds, mas perde o que o repositório único fazia melhor: um agente
+enxergava o projeto inteiro de uma vez.
 
-The idea is an old one: a "meta-repo" that pins many repos into one workspace, as Android's
-[`repo`](https://source.android.com/docs/setup/reference/repo) manifest does. marola adopted it
-in [MIP-0070](https://docs.marola.dev/6-MIPs/MIP-0070-umbrella-and-polyrepo-split/) (2026-09-30),
-which also lists the alternatives it turned down.
+O guarda-chuva (umbrella) fica com as duas coisas. O [marola](https://github.com/marola-dev/marola)
+não tem código, só a camada do time (planos, regras, a lista de fases, o site de docs) e cada um
+dos outros repositórios como submódulo git. Clonando com `--recurse-submodules`, o projeto todo
+volta a ser um diretório só, com as regras comuns na raiz e as regras de cada repositório dentro
+dele. Cada repositório continua compilando, testando e lançando versões sozinho, e só conversa com
+os outros por artefatos versionados que ele fixa.
 
-<p align="center"><img src="https://raw.githubusercontent.com/marola-dev/marola/main/docs/img/umbrella.svg" alt="How marola's repositories depend on each other" width="760" /></p>
+A ideia é antiga: um "meta-repo" que junta vários repositórios num espaço de trabalho, como faz o
+manifest do [`repo`](https://source.android.com/docs/setup/reference/repo) do Android. O marola
+adotou o padrão na
+[MIP-0070](https://docs.marola.dev/6-MIPs/MIP-0070-umbrella-and-polyrepo-split/) (30/09/2026),
+que também lista as alternativas descartadas.
 
-| Repo | What it holds |
+<p align="center"><img src="https://raw.githubusercontent.com/marola-dev/marola/main/docs/img/umbrella.pt-BR.svg" alt="Como os repositórios do marola dependem uns dos outros" width="760" /></p>
+
+| Repositório | O que guarda |
 |---|---|
-| [marola](https://github.com/marola-dev/marola) | The umbrella: plans (MIPs), rules, the docs site, every repo as a submodule |
-| [marola-app](https://github.com/marola-dev/marola-app) | The product: Scala 3 + Kyo, the score and safety veto, the CLI and MCP server |
-| [marola-site](https://github.com/marola-dev/marola-site) | The map at marola.dev |
-| [marola-oods](https://github.com/marola-dev/marola-oods) | The Open Ocean Data Store: an open archive of beaches and water quality |
-| [marola-corpus](https://github.com/marola-dev/marola-corpus) | The sourced ocean knowledge marola answers from |
-| [marola-ml](https://github.com/marola-dev/marola-ml) | Prompt compilation, the marola-sea fine-tune, the benchmark gate |
-| [marola-devkit](https://github.com/marola-dev/marola-devkit) | Shared dev tooling, hooks, workflows and the Claude Code plugin |
-| [marola-skills](https://github.com/marola-dev/marola-skills) | The catalogue of every Claude Code skill and subagent across the repos |
-| [marola-agents](https://github.com/marola-dev/marola-agents) | The inventory of every agent marola uses or plans |
-| [marola-research](https://github.com/marola-dev/marola-research) | Science |
+| [marola](https://github.com/marola-dev/marola) | O guarda-chuva: planos (MIPs), regras, o site de docs, cada repositório como submódulo |
+| [marola-app](https://github.com/marola-dev/marola-app) | O produto: Scala 3 + Kyo, a nota e o veto de segurança, a CLI e o servidor MCP |
+| [marola-site](https://github.com/marola-dev/marola-site) | O mapa em marola.dev |
+| [marola-oods](https://github.com/marola-dev/marola-oods) | O Open Ocean Data Store: um arquivo aberto de praias e qualidade da água |
+| [marola-corpus](https://github.com/marola-dev/marola-corpus) | O conhecimento sobre o mar, com fontes, de onde o marola responde |
+| [marola-ml](https://github.com/marola-dev/marola-ml) | Compilação de prompts, o fine-tune do marola-sea, o portão de benchmark |
+| [marola-devkit](https://github.com/marola-dev/marola-devkit) | Ferramentas de desenvolvimento, hooks, workflows e o plugin do Claude Code, em comum |
+| [marola-skills](https://github.com/marola-dev/marola-skills) | O catálogo de todas as skills e subagentes do Claude Code nos repositórios |
+| [marola-agents](https://github.com/marola-dev/marola-agents) | O inventário de todos os agentes que o marola usa ou planeja |
+| [marola-research](https://github.com/marola-dev/marola-research) | Ciência |
 
-**Help out:** use the map and tell us when it is wrong, or open an
-[issue](https://github.com/marola-dev/marola/issues) in Portuguese or English. More in
-[Contributing](https://docs.marola.dev/3-Ways-of-working/CONTRIBUTING/).
+**Quer ajudar?** Use o mapa e avise quando ele errar, ou abra uma
+[issue](https://github.com/marola-dev/marola/issues) em português ou inglês. Mais em
+[Como contribuir](https://docs.marola.dev/3-Ways-of-working/CONTRIBUTING/).
