@@ -28,6 +28,24 @@ One project, many small repos: a distributed monolith. A shared plan and rules l
 the whole picture, while each repo keeps its own tests and releases and pins the others'
 published versions instead of reading their code.
 
+### Why an umbrella
+
+marola started as one repo. By September 2026 that one tree forced one build on everything: a
+CSS change to the map waited on a Scala compile, and parallel agent sessions needed 30+ worktrees
+to stay out of each other's way. Splitting into separate repos fixes the builds but loses what
+the single repo did best: an agent could see the whole project at once.
+
+The umbrella keeps both. [marola](https://github.com/marola-dev/marola) holds no code, only the
+team layer (plans, rules, the phase list, the docs site) and every other repo as a git submodule.
+Clone it with `--recurse-submodules` and the whole project is one directory again, with the
+shared rules at the root and each repo's own rules inside it. Each repo still builds, tests and
+releases alone, and talks to the others only through versioned artifacts it pins.
+
+The idea is an old one: a "meta-repo" that pins many repos into one workspace, as Android's
+[`repo`](https://source.android.com/docs/setup/reference/repo) manifest does. marola adopted it
+in [MIP-0070](https://docs.marola.dev/6-MIPs/MIP-0070-umbrella-and-polyrepo-split/) (2026-09-30),
+which also lists the alternatives it turned down.
+
 <p align="center"><img src="https://raw.githubusercontent.com/marola-dev/marola/main/docs/img/umbrella.svg" alt="How marola's repositories depend on each other" width="760" /></p>
 
 | Repo | What it holds |
@@ -39,6 +57,9 @@ published versions instead of reading their code.
 | [marola-corpus](https://github.com/marola-dev/marola-corpus) | The sourced ocean knowledge marola answers from |
 | [marola-ml](https://github.com/marola-dev/marola-ml) | Prompt compilation, the marola-sea fine-tune, the benchmark gate |
 | [marola-devkit](https://github.com/marola-dev/marola-devkit) | Shared dev tooling, hooks, workflows and the Claude Code plugin |
+| [marola-skills](https://github.com/marola-dev/marola-skills) | The catalogue of every Claude Code skill and subagent across the repos |
+| [marola-agents](https://github.com/marola-dev/marola-agents) | The inventory of every agent marola uses or plans |
+| [marola-research](https://github.com/marola-dev/marola-research) | Science |
 
 **Help out:** use the map and tell us when it is wrong, or open an
 [issue](https://github.com/marola-dev/marola/issues) in Portuguese or English. More in
