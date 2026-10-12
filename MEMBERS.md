@@ -24,5 +24,5 @@ One row per person, in a pull request to this repo, placed by first commit. `Nam
 `Family, Given`, as Zenodo writes it; `ORCID` and `GitHub` are links, or empty; `First commit` is
 the commit's UTC date linking to it, or empty. Adding a creator of the Zenodo record goes with
 the same change to `.zenodo.json` in [marola-dev/marola](https://github.com/marola-dev/marola), so
-the next release credits them; then bump `site/members.version` in marola-site so the page shows
-the change.
+the next release credits them. marola-site's `members.yml` opens a PR with the updated page the
+next day.
