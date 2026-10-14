@@ -16,7 +16,7 @@ no commit yet follow, in the Zenodo record's order.
 | Ribeiro, Pablo | | [0009-0005-3553-8323](https://orcid.org/0009-0005-3553-8323) | [Bleenho](https://github.com/Bleenho) | [2026-09-29](https://github.com/marola-dev/marola/commit/0f10a2f9a6fcb38fdc721ece86c62df65fc4a251) | contributor | |
 | Soares da Silva Junior, Rob Kler | | [0009-0003-3102-4996](https://orcid.org/0009-0003-3102-4996) | [robkler](https://github.com/robkler) | [2026-09-29](https://github.com/marola-dev/marola/commit/23bc93cc6ea3aff98fc2bd547310dbddea17228c) | contributor | owner |
 | Oliveira, Elisa | | [0009-0002-9844-7865](https://orcid.org/0009-0002-9844-7865) | | | ui / mkt | |
-| Almeida, Leonardo Ramos | Universidade Federal do Rio de Janeiro | [0009-0004-8570-4601](https://orcid.org/0009-0004-8570-4601) | | | contributor | owner |
+| Almeida, Leonardo Ramos | Universidade Federal do Rio de Janeiro | [0009-0004-8570-4601](https://orcid.org/0009-0004-8570-4601) | [aracyla](https://github.com/aracyla) | | contributor | owner |
 
 ## Adding or changing a member
 
