@@ -17,6 +17,7 @@ no commit yet follow, in the Zenodo record's order.
 | Soares da Silva Junior, Rob Kler | | [0009-0003-3102-4996](https://orcid.org/0009-0003-3102-4996) | [robkler](https://github.com/robkler) | [2026-09-29](https://github.com/marola-dev/marola/commit/23bc93cc6ea3aff98fc2bd547310dbddea17228c) | contributor | owner |
 | Oliveira, Elisa | | [0009-0002-9844-7865](https://orcid.org/0009-0002-9844-7865) | | | ui / mkt | |
 | Almeida, Leonardo Ramos | Universidade Federal do Rio de Janeiro | [0009-0004-8570-4601](https://orcid.org/0009-0004-8570-4601) | [aracyla](https://github.com/aracyla) | | contributor | owner |
+| Kuniyoshi, Tiago Shin-Iti | | [0009-0004-3742-2861](https://orcid.org/0009-0004-3742-2861) | | | contributor | |
 
 ## Adding or changing a member
 
