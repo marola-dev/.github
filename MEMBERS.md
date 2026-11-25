@@ -18,6 +18,7 @@ no commit yet follow, in the Zenodo record's order.
 | Almeida, Leonardo Ramos | Piabrota ART | [0009-0004-8570-4601](https://orcid.org/0009-0004-8570-4601) | [aracyla](https://github.com/aracyla) | https://aracyla.xyz/ | | contributor | owner |
 | Kuzniecow, Yuri | Canto das Aguas SC | | | https://cantodasaguas.org/ | | advisor | |
 | Nader, Joao Victor | @oseuprofessordefisica | | | https://www.instagram.com/nader_oficial/ https://www.instagram.com/oseuprofessordefisica/ | | advisor | |
+| Costa, Guilherme | Yoga Professor | | | https://www.instagram.com/yogacomgui/ | | advisor | |
 
 ## Non-human
 
